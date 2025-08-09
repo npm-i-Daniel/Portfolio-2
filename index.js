@@ -76,7 +76,13 @@ boxes.forEach((box, index) => {
         content.style.display = 'flex'
         content.style.alignItems ="center"
         content.style.justifyContent = 'center'
-    })
+    progressElements.forEach(el => {
+        const skillLevel = el.getAttribute("data-skill");
+        el.style.width = skillLevel + "%";
+        el.style.transition = "10s linear "
+    });
+    });
+
 
 
     remove[index].addEventListener('click', function (event) {
@@ -107,17 +113,12 @@ boxes.forEach((box, index) => {
         content.style.display = 'flex'
         content.style.alignItems ="center"
         content.style.justifyContent = 'center'
+
+        progressElements.forEach(el => {
+        el.style.width = "0%";
     });
+
 })
-window.addEventListener("DOMContentLoaded", function () {
-    progressElements.forEach(el => {
-        const skillLevel = el.getAttribute("data-skill");
-        el.style.width = skillLevel + "%";
-        el.style.transition = "10s linear "
-    });
-})
-progressElements.forEach(el => {
-    el.style.width = "0%";
 });
 
 dp.addEventListener('click',function () {
@@ -138,4 +139,3 @@ rembtn.addEventListener('click',function () {
     dp.style.borderRadius = '50%'
     rembtn.style.display = 'none'
 })
-
