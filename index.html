@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 
@@ -22,10 +23,9 @@
         </nav>
         <div class="container">
             <div class="part1">
-                <h1 class='name'>Daniel</h1>
+                <h1 id='name'></h1>
                 <p>Frontend Developer | React JS Developer | Responsive Designer | Web Developer</p>
-            </div>
-            <div class="part2"><img src="dp.png"></div>
+            </div><div data-aos="fade-left"><div class="part2"><img src="dp.png"><button type="button" class="removebtn">X</button></div></div>
         </div>
         <div class="content">
             <div class="box" id="about">
@@ -138,5 +138,18 @@
     </div>
 </body>
 <script src="index.js"> </script>
-
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+var typed = new Typed('#name', {
+                    strings: [`I'm Daniel...`],
+                    typeSpeed: 100,
+                    backSpeed: 50,
+                    loop: true,
+                    showCursor: false
+                });
+</script>
+<script>
+  AOS.init();
+</script>
 </html>

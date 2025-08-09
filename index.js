@@ -11,6 +11,8 @@ let progressElements = document.querySelectorAll(".progress");
 let cardset = document.querySelector(".cardset")
 let img = document.querySelector('.img-ui')
 let contact = document.querySelector('.contact')
+let dp = document.querySelector('.part2 img')
+let rembtn = document.querySelector('.removebtn')
 
 
 lis.forEach(function (li, index) {
@@ -117,3 +119,23 @@ window.addEventListener("DOMContentLoaded", function () {
 progressElements.forEach(el => {
     el.style.width = "0%";
 });
+
+dp.addEventListener('click',function () {
+    dp.style.transform = 'scale(1.8)'
+    dp.style.borderRadius = '10px'
+    rembtn.style.display = 'block'
+    rembtn.style.color = 'white'
+    rembtn.style.position = 'relative'
+    rembtn.style.top = '-270px'
+    rembtn.style.left = '240px'
+    rembtn.style.backgroundColor = 'black'
+    rembtn.style.border = '2px solid white'
+    rembtn.style.borderRadius = '50%'
+    rembtn.style.width = '20px'
+})
+rembtn.addEventListener('click',function () {
+    dp.style.transform = 'scale(1)'
+    dp.style.borderRadius = '50%'
+    rembtn.style.display = 'none'
+})
+

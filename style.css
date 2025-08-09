@@ -42,7 +42,12 @@
       width: 200px;
       height: 200px;
   }
-
+  .removebtn{
+    display: none;
+  }
+  #name{
+    font-size: 80px;
+  }
 
   .list {
       margin-left: 600px;
