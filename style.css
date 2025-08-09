@@ -1,4 +1,5 @@
   * {
+    cursor: pointer;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -34,11 +35,10 @@
       font-size: 35px;
   }
 
-  img {
+  .part2 img {
       border-radius: 50%;
       border: 2px solid blue;
       object-fit: cover;
-      animation: none;
       width: 200px;
       height: 200px;
   }
@@ -83,6 +83,7 @@
       width: 80%;
       text-align: center;
       justify-content: space-evenly;
+      align-items: center;
   }
 
   .box {
@@ -91,34 +92,27 @@
       margin-left: 40px;
       color: white;
       padding: 25px 20px;
-      transform: scale(3.1);
       transition: all 0.3s linear;
-      position: absolute;
-      top: -300px;
-      /* position: relative; */
+      position: relative;
       overflow: hidden;
-      height: 28vh;
+      height: 23vh;
       width: 450px;
   }
 
-  /* .box:hover {
+  .box:hover {
       border: 2px solid white;
       margin-left: 40px;
       transition: all 0.3s linear;
-  } */
+  }
 
   .title {
+      display: block;
       border-bottom: 2px solid white;
       font-size: 25px;
       text-align: center;
+      line-height: 1;
+      padding-bottom: 10px;
   }
-
-  .name {
-      justify-content: center;
-      align-items: center;
-      padding: 20px 0px;
-  }
-
   .box p {
       font-size: 50%;
       width: 100%;
@@ -134,8 +128,167 @@
       top: 10px;
       right: 20px;
   }
-  .skill-list ul{
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
+
+  span {
+      display: flex;
+      justify-content: start;
+  }
+
+  .skill-list ul {
+      list-style: none;
+      padding: 2px 10px;
+      display: flex;
+      justify-content: space-evenly;
+  }
+
+  .skill-list li {
+      margin-top: 10px;
+  }
+
+  .progress-bar {
+      border-radius: 20px;
+      border: 2px solid white;
+      height: 10px;
+      width: 100px;
+      display: none;
+  }
+
+  .progress {
+      border: 2px solid blue;
+      border-radius: 20px;
+      background-color: white;
+      height: 100%;
+      width: 0px;
+      position: relative;
+      font-size: 3px;
+      font-weight: 600;
+      color: blue;
+  }
+  .cardset{
+    display: none;
+  }
+
+  .card {
+      width: 120px;
+      height: 100px;
+      padding: 40px;
+      margin: 4px 5px;
+      border: none;
+      transition: 300ms linear;
+      /* border: 1px solid white; */
+      box-shadow: 1px 0px 25px black;
+      position: relative;
+      top: 0px;
+      left: 10px;
+      border-radius: 10px;
+  }
+  .card:hover {
+      transition: 300ms linear;
+      box-shadow: 1px 0px 5px white;
+  }
+
+  .card h5 {
+      font-size: 5px;
+      text-align: start;
+      position: relative;
+      top: -35px;
+      left: -30px;
+  }
+
+  .p-img1 {
+      box-shadow: 1px 0px 5px white;
+      border: white solid 1px;
+      z-index: 0;
+      width: 100px;
+      height: 50px;
+      border-radius: 0px;
+      object-fit: cover;
+      position: relative;
+      top: -30px;
+      left: -30px;
+  }
+  .img-ui{
+     box-shadow: 1px 0px 5px white;
+      border: white solid 1px;
+      z-index: 0;
+      width: 160px;
+      height: 80px;
+      border-radius: 0px;
+      object-fit: cover;
+      position: relative;
+      top: -5px;
+  }
+
+  .p-img2 {
+      box-shadow: 1px 0px 5px white;
+      border: white solid 1px;
+      z-index: 1;
+      width: 100px;
+      height: 50px;
+      border-radius: 0px;
+      position: relative;
+      top: -70px;
+      left: -25px;
+  }
+
+  .p-a {
+      color: white;
+      text-decoration: none;
+      width: 100px;
+      font-size: 5px;
+      font-size: xx-small;
+      height: 10px;
+      position: absolute;
+      top: 82px;
+      left: 45px;
+  }
+  .card svg{
+    width: 10px;
+    position: relative;
+    top: 1.5px;
+    left: 2px;
+  }
+
+.contact{
+    position: relative;
+    left: -70px;
+    top: -10px;
+}
+  .contact__content1 {
+      padding: 20px;
+  }
+
+  .contact__content2 {
+      padding: 20px;
+  }
+
+  .contact__content3 {
+      padding: 20px;
+  }
+
+  .c-svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+      position: relative;
+      left: 120px;
+      top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .c-a {
+    width: fit-content;
+      color: white;
+      position: relative;
+      top: 4px;
+      left: 150px;
+      font-size: 10px;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+  }
+  .c-a:hover {
+      color: rgb(177, 177, 177);
   }
