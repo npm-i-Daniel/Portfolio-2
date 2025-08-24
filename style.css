@@ -1,5 +1,5 @@
   * {
-    cursor: pointer;
+      cursor: pointer;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -21,6 +21,20 @@
       padding: 20px;
   }
 
+  .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+  }
+
+  .hamburger span {
+      background: white;
+      height: 3px;
+      width: 25px;
+      border-radius: 5px;
+  }
+
   .logo {
       font-size: 20px;
       width: 20%;
@@ -37,16 +51,50 @@
 
   .part2 img {
       border-radius: 50%;
-      border: 2px solid blue;
       object-fit: cover;
       width: 200px;
       height: 200px;
+      position: relative;
   }
-  .removebtn{
-    display: none;
+  @property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
   }
-  #name{
-    font-size: 80px;
+  .part2::after, .part2::before{
+    content: '';
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    object-fit: cover;
+    top: 49%;
+    left: 50%;
+    translate: -50% -50%;
+    background-image: conic-gradient(from var(--angle), transparent 50%, blue);
+    padding: 3px;
+    z-index: -1;
+    border-radius: 50%;
+    animation: spin linear 1s infinite;
+  }
+  .part2::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+  }
+  @keyframes spin {
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+  }
+
+  .removebtn {
+      display: none;
+  }
+
+  #name {
+      font-size: 80px;
   }
 
   .list {
@@ -56,6 +104,7 @@
       justify-content: space-evenly;
       align-items: center;
       list-style: none;
+      gap: 20px;
   }
 
   .list li {
@@ -118,6 +167,7 @@
       line-height: 1;
       padding-bottom: 10px;
   }
+
   .box p {
       font-size: 50%;
       width: 100%;
@@ -169,8 +219,9 @@
       font-weight: 600;
       color: blue;
   }
-  .cardset{
-    display: none;
+
+  .cardset {
+      display: none;
   }
 
   .card {
@@ -187,6 +238,7 @@
       left: 10px;
       border-radius: 10px;
   }
+
   .card:hover {
       transition: 300ms linear;
       box-shadow: 1px 0px 5px white;
@@ -212,11 +264,13 @@
       top: -30px;
       left: -30px;
   }
-  .img-ui{
-    display: flex;
+
+  .img-ui {
+      display: flex;
   }
-  .img-ui1{
-     box-shadow: 1px 0px 5px white;
+
+  .img-ui1 {
+      box-shadow: 1px 0px 5px white;
       border: white solid 1px;
       z-index: 3;
       width: 160px;
@@ -226,8 +280,9 @@
       position: relative;
       top: -14px;
   }
-  .img-ui2{
-    box-shadow: 1px 0px 5px white;
+
+  .img-ui2 {
+      box-shadow: 1px 0px 5px white;
       border: white solid 1px;
       z-index: 2;
       width: 160px;
@@ -238,8 +293,9 @@
       top: -5px;
       left: -120px;
   }
-  .img-ui3{
-    box-shadow: 1px 0px 5px white;
+
+  .img-ui3 {
+      box-shadow: 1px 0px 5px white;
       border: white solid 1px;
       z-index: 1;
       width: 160px;
@@ -274,18 +330,20 @@
       top: 82px;
       left: 45px;
   }
-  .card svg{
-    width: 10px;
-    position: relative;
-    top: 1.5px;
-    left: 2px;
+
+  .card svg {
+      width: 10px;
+      position: relative;
+      top: 1.5px;
+      left: 2px;
   }
 
-.contact{
-    position: relative;
-    left: -70px;
-    top: -10px;
-}
+  .contact {
+      position: relative;
+      left: -70px;
+      top: -10px;
+  }
+
   .contact__content1 {
       padding: 20px;
   }
@@ -311,7 +369,7 @@
   }
 
   .c-a {
-    width: fit-content;
+      width: fit-content;
       color: white;
       position: relative;
       top: 4px;
@@ -321,6 +379,61 @@
       justify-content: start;
       align-items: center;
   }
+
   .c-a:hover {
       color: rgb(177, 177, 177);
+  }
+
+  .box {
+      transition: all 0.3s ease;
+  }
+
+  .box.expanded {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%) scale(2);
+      width: 80%;
+      height: auto;
+      z-index: 4;
+  }
+
+  @media screen and (min-width: 768px), (max-width: 1024) {
+      .box.expanded {
+          transform: translateX(-50%) scale(1.2);
+          width: 95%;
+      }
+  }
+
+  @media screen and (max-width: 420px){
+
+      .list {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background: black;
+          width: 200px;
+          padding: 15px;
+          gap: 15px;
+      }
+
+      .list.active {
+          display: flex;
+      }
+
+      .hamburger {
+          display: flex;
+      }
+
+      .container {
+          width: 80%;
+          display: flex;
+          flex-direction: column-reverse;
+      }
+
+      .part1 {
+          font-size: 85%;
+      }
   }

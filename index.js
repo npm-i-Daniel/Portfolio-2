@@ -1,4 +1,6 @@
 let boxes = document.querySelectorAll(".box")
+let hamburger = document.querySelector('.hamburger');
+let list = document.querySelector('.list');
 let lis = document.querySelectorAll('li')
 let parent = document.querySelector('.parent')
 let nav = document.querySelector('nav')
@@ -24,7 +26,7 @@ lis.forEach(function (li, index) {
         boxes[index].style.boxShadow = '2px 2px 10px white'
         boxes[index].style.transform = 'scale(1.1)'
         content.style.display = 'flex'
-        content.style.alignItems ="center"
+        content.style.alignItems = "center"
         content.style.justifyContent = 'center'
 
     })
@@ -36,7 +38,7 @@ lis.forEach(function (li, index) {
         boxes[index].style.width = '450px'
         boxes[index].style.transform = 'scale(1)'
         content.style.display = 'flex'
-        content.style.alignItems ="center"
+        content.style.alignItems = "center"
         content.style.justifyContent = 'center'
     })
 })
@@ -55,8 +57,8 @@ boxes.forEach((box, index) => {
     box.addEventListener('click', function () {
         box.style.position = 'absolute'
         box.style.top = '-240px'
-        box.style.left = '385px'
-        box.style.transform = 'scale(3.1)'
+        box.style.left = '50%';
+        box.style.transform = 'translateX(-50%) scale(3.1)';
         nav.style.filter = 'blur(4px)'
         container.style.filter = 'blur(4px)'
         box.style.height = '28vh'
@@ -66,6 +68,10 @@ boxes.forEach((box, index) => {
         title[index].style.textAlign = 'start'
         title[index].style.fontSize = 'small'
 
+        content.style.display = 'flex';
+        content.style.alignItems = "center";
+        content.style.justifyContent = 'center';
+
         progressbar.forEach(bar => {
             bar.style.display = "block"
         })
@@ -74,16 +80,18 @@ boxes.forEach((box, index) => {
         img.style.display = "none"
         contact.style.display = 'block'
         contact.style.position = 'relative'
-        contact.style.top ='0px'
+        contact.style.top = '0px'
         contact.style.left = '0px'
         content.style.display = 'flex'
-        content.style.alignItems ="center"
+        content.style.alignItems = "center"
         content.style.justifyContent = 'center'
-    progressElements.forEach(el => {
-        const skillLevel = el.getAttribute("data-skill");
-        el.style.width = skillLevel + "%";
-        el.style.transition = "10s linear "
-    });
+        progressElements.forEach(el => {
+            const skillLevel = el.getAttribute("data-skill");
+            el.style.width = skillLevel + "%";
+            el.style.transition = "10s linear "
+
+            box.classList.add('expanded');
+        });
     });
 
 
@@ -117,20 +125,25 @@ boxes.forEach((box, index) => {
         img3.style.top = '-160px'
         img3.style.left = '40px'
         contact.style.display = "block"
-        contact.style.top ='-1px'
+        contact.style.top = '-1px'
         contact.style.left = '-70px'
         content.style.display = 'flex'
-        content.style.alignItems ="center"
+        content.style.alignItems = "center"
         content.style.justifyContent = 'center'
 
         progressElements.forEach(el => {
-        el.style.width = "0%";
-    });
+            el.style.width = "0%";
+        });
 
-})
+        box.classList.remove('expanded');
+        content.style.display = 'flex';
+content.style.alignItems ="center";
+content.style.justifyContent = 'center';
+
+    })
 });
 
-dp.addEventListener('click',function () {
+dp.addEventListener('click', function () {
     dp.style.transform = 'scale(1.8)'
     dp.style.borderRadius = '10px'
     rembtn.style.display = 'block'
@@ -143,8 +156,12 @@ dp.addEventListener('click',function () {
     rembtn.style.borderRadius = '50%'
     rembtn.style.width = '20px'
 })
-rembtn.addEventListener('click',function () {
+rembtn.addEventListener('click', function () {
     dp.style.transform = 'scale(1)'
     dp.style.borderRadius = '50%'
     rembtn.style.display = 'none'
 })
+
+hamburger.addEventListener('click', () => {
+  list.classList.toggle('active');
+});
